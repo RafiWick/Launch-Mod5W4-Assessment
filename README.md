@@ -22,9 +22,17 @@ When finished, create a PR and include your answers to the reflection questions 
 
 ## Reflection Questions (6 points)
 * What about this challenge was most difficult for you?
-* Highlight one peice of code that you wrote that you are especially proud of.
-* What would you do next, if we gave you another hour?
 
+  the most dificult part for me is getting the Json document into a usable format, it is coming back with some extra information at the begining and I cant seem to isolate the list of planets.
+* Highlight one peice of code that you wrote that you are especially proud of.
+
+`for (int i=0; i < 6; i++){
+var url = string.Format($"/api/planets/?page={i + 1}");
+var response = await _client.GetAsync(url);`
+
+I am especially proud of this bit of code because it will grab all of the planets from all 6 pages
+* What would you do next, if we gave you another hour?
+If I had more time I would spend it figuring out how to get the data out of the Json document and into the SWPlanet model.
 ## Rubric
 
 This assessment has a total of 16 points.  Earning 10 or more points is a pass.
