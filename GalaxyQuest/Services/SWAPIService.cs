@@ -23,10 +23,8 @@ namespace GalaxyQuest.Services
                 if (response.IsSuccessStatusCode)
                 {
                     var stringResponse = await response.Content.ReadAsStringAsync();
-                    stringResponse = stringResponse.Substring(stringResponse.IndexOf('[') + 1);
-                    stringResponse = stringResponse.Substring(0, stringResponse.Length - 2);
-                    result.AddRange(JsonSerializer.Deserialize<List<SWPlanet>>(stringResponse,
-                        new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }));
+                    result.AddRange(JsonSerializer.Deserialize<SWPlanetPage>(stringResponse,
+                        new JsonSerializerOptions() { PropertyNamingPolicy = JsonNamingPolicy.CamelCase }).Results);
                 }
                 else
                 {
